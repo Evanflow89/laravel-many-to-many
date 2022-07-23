@@ -33,6 +33,17 @@
                             @endforeach
                           </select>
                     </div>
+                    <div class="form-group">
+                        <p>Tags</p>
+                        @foreach ($tags as $tag)
+                        <div class="form-check form-check-inline">
+                            <input class="form-check-input" type="checkbox" id="{{$tag->slug}}" value="{{$tag->id}}" name="tags[]">
+                            <label class="form-check-label" for="{{$tag->slug}}">{{$tag->name}}</label>
+                          </div>
+                        @endforeach
+                       
+                       
+                    </div>
                     <div class="form-group form-check">
                         <input type="checkbox" class="form-check-input @error('published') is-invalid @enderror" id="published" name="published" {{old('published') ? 'checked' : ''}}>
                         <label class="form-check-label" for="published">Publish</label>
